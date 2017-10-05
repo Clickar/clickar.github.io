@@ -1,11 +1,11 @@
-html {
-	background: url(background.jpg);
+body {
+	background: url(background.jpg) no-repeat center center fixed;
 	background-size: cover;
 	color: white;
-	height: 100%;
-
 }
-
+html {
+	height: 100%;
+}
 
 
 
