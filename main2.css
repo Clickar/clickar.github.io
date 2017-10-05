@@ -1,14 +1,13 @@
-body {
+html {
 	background: url(background.jpg);
 	background-size: cover;
 	color: white;
-
-
-}
-
-html {
 	height: 100%;
+
 }
+
+
+
 
 #content {
 	text-align: center;
