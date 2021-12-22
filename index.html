@@ -1,43 +1,52 @@
-<!doctype HTML>
 <html>
 <head>
+<script>
+const words = ['mom','dad','but','from','to','the','that'];
 
-	<title>My practice page</title>
+function populate() {
+	document.getElementById("word").innerHTML = words[0];
+}
 
-	<link href="css/main.css" rel="stylesheet" type="text/css" /> 
+function nextWord() {
+	var curword = document.getElementById("word").innerHTML
+	var curindex = words.indexOf(curword)
+	var nextword
+	if(curindex >= 0 && curindex < words.length - 1) {
+    	nextword = words[curindex + 1];
+	} else { 
+		nextword = "COMPLETE!";
+	}
+	
+	document.getElementById("word").innerHTML = nextword
 
+}
+
+function shuffle(array) {
+  let i = array.length -1,  y;
+
+  while (i != 0) {
+
+    y = Math.floor(Math.random() * i);
+    i--;
+
+    [array[i], array[y]] = [array[y], array[i]];
+  }
+
+  return array;
+}
+
+</script>
 </head>
+<body onload="populate()">
 
-<body>
-	
-	<div class="navigation">
-		<ul>
-			<li><a class="current" href="index.html">Home</a></li>
-			<li><a href="blog.html">Blog</a></li>
-			<li><a href="about.html">About Me</a></li>
-			<li><a href="test.html">Test Stuff</a></li>
-			<li><a href="index2.html">Caseyhay</a></li>
-			<div class="navimg">
-				<li><a href="https://www.facebook.com/profile.php?id=12455047"><img src="images/fb-button.png" height="30" width="30"/></a></li>
-			</div>
-		</ul>
-	</div>
+<h2>Sight Words</h2>
 
-	<div class="body">
-	
-		<h1>Jeremy Goehring</h1>
-		
-		<h2>This website's purpose is to practice my html/css skills</h2>
+<h5 id="word"></h5>
 
-		<p>So I recently finished the HTML and CSS sections on Codecademy and I figure the easiest way to continue learning is to make a website for myself. At the moment I do not really have a layout I want to make but I figure just putting some words on the page would be a good start. After I get a little more comfortable I plan on learning javascript then move onto a new programming language I just have not decided on which on yet.</p>
+<button onclick="shuffle(words);populate()">Shuffle</button>
 
-		<img src="https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/11205620_10106468963606995_6350305160627996445_n.jpg?oh=8ff8bad33aa5b2fe3070046984762794&oe=5A557203" height="300" width="300" />
-
-	<div class="footer">
-	
-		<h5>This website created by Jeremy Goehring</h5>
-	
-	</div>
+<button onclick="nextWord()">Next Word</button>
 
 </body>
 </html>
+
