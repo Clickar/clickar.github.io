@@ -1,0 +1,57 @@
+<html>
+<head>
+<script>
+const words = ['mom','dad','but','from','to','the','that'];
+
+function populate() {
+	document.getElementById("word").innerHTML = words[0];
+}
+
+function nextWord() {
+	var curword = document.getElementById("word").innerHTML
+	var curindex = words.indexOf(curword)
+	var nextword
+	if(curindex >= 0 && curindex < words.length - 1) {
+    	nextword = words[curindex + 1];
+	} else { 
+		nextword = "COMPLETE!";
+	}
+	
+	document.getElementById("word").innerHTML = nextword
+
+	console.log(curword)
+	console.log(curindex)
+	console.log(nextword)
+
+
+}
+
+function shuffle(array) {
+  let i = array.length -1,  y;
+
+  while (i != 0) {
+
+    y = Math.floor(Math.random() * i);
+    i--;
+
+    [array[i], array[y]] = [array[y], array[i]];
+  }
+
+  return array;
+}
+
+</script>
+</head>
+<body onload="populate()">
+
+<h2>Sight Words</h2>
+
+<h5 id="word"></h5>
+
+<button onclick="shuffle(words);populate()">Shuffle</button>
+
+<button onclick="nextWord()">Next Word</button>
+
+</body>
+</html>
+
